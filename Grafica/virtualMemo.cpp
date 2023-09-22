@@ -81,7 +81,7 @@ void virtualMemo::getprevPage(){
 }
 
 
-int virtualMemo::movePage(int n){
+void virtualMemo::movePage(int n){
 
     this->prevPageIndx = abs((this->prevPageIndx+(1*n))%3);
     this->currPageIndx = abs((this->currPageIndx+(1*n))%3);
@@ -99,47 +99,22 @@ int virtualMemo::movePage(int n){
 
     this->pageRecord.push_back(file.tellg());
     file.close();
-    return 0;
-}
-
-void virtualMemo::setUI(){
-
-    vector<Album> prev = *this->prevPage;
-    vector<Album> curr = *this->currPage;
-    vector<Album> next = *this->nextPage;
-
-
-    for(int i = 0; i < prev.size(); i++){
-        this->list->addItem(QString::fromStdString(prev[i].id)+"_"+QString::fromStdString(prev[i].name));
-
-    }
-
-    for(int j = 0; j < curr.size(); j++){
-        this->list->addItem(QString::fromStdString(curr[j].id)+"_"+QString::fromStdString(curr[j].name));
-
-    }
-
-
-    for(int k = 0; k < next.size(); k++){
-        this->list->addItem(QString::fromStdString(next[k].id)+"_"+QString::fromStdString(next[k].name));
-
-    }
-
-    this->list->addItem(QString::fromStdString("a")+"_"+QString::fromStdString("b"));
 
 }
 
 
-vector<Album> virtualMemo::returnNext(){
-    return *(this->nextPage);
+
+
+vector<Album>* virtualMemo::returnNext(){
+    return this->nextPage;
 
 }
 
-vector<Album> virtualMemo::returnCurr(){
-    return *(this->currPage);
+vector<Album>* virtualMemo::returnCurr(){
+    return this->currPage;
 }
 
-vector<Album> virtualMemo::returnPrev(){
-    return *(this->prevPage);
+vector<Album>* virtualMemo::returnPrev(){
+    return this->prevPage;
 }
 

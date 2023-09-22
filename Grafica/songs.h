@@ -1,7 +1,7 @@
 
+
+#include <QObject>
 #include "virtualMemo.h"
-
-
 
 
 #ifndef SONGS_H
@@ -12,16 +12,16 @@
 class songs{
     public:
 
-        songs(string,QListWidget*);
+        songs(string,QObject*);
 
         virtualMemo *Memo;
 
-        vector<Album> getNext();
-        vector<Album> getCurr();
-        vector<Album> getPrev();
+        vector<Album>* getNext();
+        vector<Album>* getCurr();
+        vector<Album>* getPrev();
         void passAgetNext();
         void passAgetPrev();
-
+        void pruve();
 
         
     private:

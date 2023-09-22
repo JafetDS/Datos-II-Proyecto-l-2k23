@@ -21,11 +21,10 @@ class virtualMemo{
         void fullPages();
         void getnextPage();
         void getprevPage();
-        vector<Album> returnNext();
-        vector<Album> returnCurr();
-        vector<Album> returnPrev();
-        QListWidget *list;
-        void setUI();
+        void movePage(int);
+        vector<Album>* returnNext();
+        vector<Album>* returnCurr();
+        vector<Album>* returnPrev();
 
     private:
         string File;
@@ -47,7 +46,6 @@ class virtualMemo{
 
         void setPagepoint();
         void loadNewPage(ifstream*,vector<Album>*);
-        int movePage(int);
 
 
 
