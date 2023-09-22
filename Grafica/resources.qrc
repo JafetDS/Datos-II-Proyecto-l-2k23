@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Doc">
+        <file>Doc/Genres.csv</file>
+    </qresource>
+</RCC>
